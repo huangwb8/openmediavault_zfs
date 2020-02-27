@@ -23,7 +23,7 @@ echo "* 5 * * * root openmediavault_zfs.sh destroy" >> /etc/crontab
 代码的含义是
 + 从github复制openmediavault_zfs仓库
 + 让openmediavault_zfs.sh变成可执行文件
-+ 将openmediavault_zfs.sh复制到/sbin/目录（这是环境路径，使用是可以直接引用）
++ 将openmediavault_zfs.sh复制到/sbin/目录（这是环境路径，使用是时可以直接引用）
 + 添加命令到crontab中以实现定时运行。
 
 3. Test 测试是否安装成功
