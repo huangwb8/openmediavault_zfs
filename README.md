@@ -1,7 +1,7 @@
 # openmediavault_zfs
  A easy way for snapshot and destroy function of zfs in openmediavault
 
-一种简单地方式在openmediavault系统中应用zfs中的快照和快照删除功能
+一种简单地方式在openmediavault系统中应用zfs进行自动化快照和快照删除
 
 
 
