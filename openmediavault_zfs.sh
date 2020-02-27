@@ -12,8 +12,8 @@
 # /usr/bin/bash openmediavault_zfs.sh destroy
 
 # 2.Cron
-# echo "* 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab
-# echo "* 5 * * * root openmediavault_zfs.sh destroy" >> /etc/crontab
+# echo "0 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab
+# echo "0 5 * * * root openmediavault_zfs.sh destroy" >> /etc/crontab
 
 # Parameter
 type=$1 # 执行类型: snapshot ; destroy

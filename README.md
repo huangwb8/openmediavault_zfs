@@ -17,13 +17,13 @@
 git clone https://github.com/huangwb8/openmediavault_zfs.git && \
 chmod +777 ./openmediavault_zfs/openmediavault_zfs.sh && \
 cp ./openmediavault_zfs/openmediavault_zfs.sh /sbin/ && \
-echo "* 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab && \
-echo "* 5 * * * root openmediavault_zfs.sh destroy" >> /etc/crontab
+echo "0 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab && \
+echo "0 5 * * * root openmediavault_zfs.sh destroy" >> /etc/crontab
 ```
 代码的含义是
 + 从github复制openmediavault_zfs仓库
 + 让openmediavault_zfs.sh变成可执行文件
-+ 将openmediavault_zfs.sh复制到/sbin/目录（这是环境路径，使用是时可以直接引用）
++ 将openmediavault_zfs.sh复制到/sbin/目录（这是环境路径，使用时可以直接引用）
 + 添加命令到crontab中以实现定时运行。
 
 3. Test 测试是否安装成功
@@ -42,10 +42,10 @@ cat /etc/crontab
 
 If you can see something like: 并且看到在shell中看到下面的字样
 
-![2020-02-27_105744.jpg](http://picture.hwb0307.top:8710/images/2020/02/27/kXQEgH3PVKSXQUyd.jpg)
+![2020-02-28_070647.jpg](http://picture.hwb0307.top:8710/images/2020/02/28/yKdGLIKZNcmerCEu.jpg)
 
 That is sucessful!  奥力给！
 
-It means that the system would create a snapshot in 3.am and destroy a 7-day-before one daily. 这意味着系统在每天早上3点钟创建一个新的快照，并在早上5点钟删除一个7天前的快照。
+It means that the system would create a snapshot in 3:00.am and destroy a 7-day-before one in 5:00 a.m.. 这意味着系统在每天早上3点钟创建一个新的快照，并在早上5点钟删除一个7天前的快照。
 
 If you want to customize the time, first you have to command some knowledge about `cro`, which you can learn [here](https://www.runoob.com/linux/linux-comm-crontab.html). 如果你想自定义时间，你需要了解一下linux的cron相关知识。详见[这里](https://www.runoob.com/linux/linux-comm-crontab.html)。
