@@ -41,6 +41,6 @@ If you can see something like: 并且看到在shell中看到下面的字样
 
 That is sucessful!  奥力给！
 
-It means that the system would create a snapshot in 3.am and destroy a 7-day-before one daily. 这意味着系统在每天早上3点钟创建一个新的快照，并删除一个7天前的快照。
+It means that the system would create a snapshot in 3.am and destroy a 7-day-before one daily. 这意味着系统在每天早上3点钟创建一个新的快照，并在早上5点钟删除一个7天前的快照。
 
 If you want to customize the time, first you have to command some knowledge about `cro`, which you can learn [here](https://www.runoob.com/linux/linux-comm-crontab.html). 如果你想自定义时间，你需要了解一下linux的cron相关知识。详见[这里](https://www.runoob.com/linux/linux-comm-crontab.html)。
