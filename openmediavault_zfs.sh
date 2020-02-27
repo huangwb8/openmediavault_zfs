@@ -8,8 +8,8 @@
 # chmod +777 ./openmediavault_zfs.sh && mv ./openmediavault_zfs.sh /sbin
 
 # 1.Basic usage
-# * 3 * * * /usr/bin/bash openmediavault_zfs.sh snapshot
-# * 5 * * * /usr/bin/bash openmediavault_zfs.sh destroy
+# /usr/bin/bash openmediavault_zfs.sh snapshot
+# /usr/bin/bash openmediavault_zfs.sh destroy
 
 # 2.Cron
 # echo "* 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab
