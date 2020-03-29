@@ -27,7 +27,7 @@ echo "0 5 * * * root openmediavault_zfs.sh destroy 7" >> /etc/crontab
 What the code doing is: 代码的含义是：
 + Git clone. 从github复制openmediavault_zfs仓库
 + Make the script executable. 让openmediavault_zfs.sh变成可执行文件
-+ Make the script executable. 将openmediavault_zfs.sh复制到/sbin/目录（这是环境路径，使用时可以直接引用）
++ Add the script into the system environment dir. 将openmediavault_zfs.sh复制到/sbin/目录（这是环境路径，使用时可以直接引用）
 + Add 2 cron record into /etc/crontab. 添加2个命令到crontab中以实现定时运行。
 
 The massage would be : 代码运行结果是：
