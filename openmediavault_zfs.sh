@@ -26,6 +26,11 @@ USAGE_NOTRUN()
 	
 	# 3.Check crontab
 	vim /etc/crontab
+	
+	if [ 1 -ge 2 ]; then
+	echo 3
+	fi
+	
 }
 
 
@@ -40,7 +45,7 @@ pool=`/sbin/zpool list | cut -d' ' -f1`
 num=${#pool[@]}
 
 ## Running programe
-if [ $num >= 2 ]; then
+if [ $num -ge 2 ]; then
 	for ((i=2;i<=$num;i++));
 	do
 	
@@ -67,15 +72,3 @@ if [ $num >= 2 ]; then
 	# End
 	done
 fi
-
-
-
-
-
-
-
-
-
-
-
-
