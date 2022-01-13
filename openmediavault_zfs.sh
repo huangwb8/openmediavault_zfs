@@ -69,7 +69,6 @@ do
   if [ "$splitchar" != "" ]
   then
 	  ((i++))
-	  echo $splitchar
   else
 	  break
   fi
@@ -83,6 +82,7 @@ if [ $num -ge 2 ]; then
 	
 	# Get one pool
 	p=`echo ${pool}|cut -d' ' -f${i}`
+	echo "Pool: $p"
 	
 	# Snapshot
 	if [ ${type} == "snapshot" ]; then 
