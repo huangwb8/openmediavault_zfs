@@ -31,6 +31,24 @@ USAGE_NOTRUN()
 	echo 3
 	fi
 	
+	echo $pool|while read id; do echo test$id; done
+	echo $pool|cut -d' ' -f2
+	
+str='this is a good question, hello shell, look at me, show your enthusiasm'
+i=1
+while((1==1))
+do
+  splitchar=`echo $pool|cut -d " " -f$i`
+  if [ "$splitchar" != "" ]
+  then
+	  ((i++))
+	  echo $splitchar
+  else
+	  break
+  fi
+done
+	
+	
 }
 
 
@@ -41,10 +59,24 @@ every=$2 # 每多少天进行快照删除。
 # Programe
 
 ## check the name of pools
-pool=(`/sbin/zpool list | cut -d' ' -f1`)
-num=${#pool[@]}
+pool=`/sbin/zpool list | cut -d' ' -f1`
 
-## Running programe
+## How many pools
+i=1
+while((1==1))
+do
+  splitchar=`echo $pool|cut -d " " -f$i`
+  if [ "$splitchar" != "" ]
+  then
+	  ((i++))
+	  echo $splitchar
+  else
+	  break
+  fi
+done
+num=$[ `expr $i - 1` ]
+
+## Manipulate snapshots
 if [ $num -ge 2 ]; then
 	for ((i=2;i<=$num;i++));
 	do
