@@ -41,7 +41,7 @@ every=$2 # 每多少天进行快照删除。
 # Programe
 
 ## check the name of pools
-pool=`/sbin/zpool list | cut -d' ' -f1`
+pool=(`/sbin/zpool list | cut -d' ' -f1`)
 num=${#pool[@]}
 
 ## Running programe
