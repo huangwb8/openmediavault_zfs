@@ -43,13 +43,13 @@ pool=`/sbin/zpool list | cut -d' ' -f1`
 i=1
 while((1==1))
 do
-  splitchar=`echo $pool|cut -d " " -f$i`
-  if [ "$splitchar" != "" ]
-  then
+	splitchar=`echo $pool|cut -d " " -f$i`
+	if [ "$splitchar" != "" ]
+	then
 	  ((i++))
-  else
+	else
 	  break
-  fi
+	fi
 done
 num=$[ `expr $i - 1` ]
 
