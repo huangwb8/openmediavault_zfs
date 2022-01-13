@@ -51,7 +51,7 @@ If you can see something like: 如果可以看到如下类似内容：
 0 3 * * * root openmediavault_zfs.sh snapshot 
 0 5 * * * root openmediavault_zfs.sh destroy 15
 ```
-in the shell, that means success!  奥力给！
+in the shell, that means success!  搞定！
 
 ## Note
 
