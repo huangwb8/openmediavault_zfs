@@ -17,7 +17,7 @@ Copy the code and run in the shell. 复制下面的代码并且粘贴到shell，
 
 ```bash
 git clone https://github.com/huangwb8/openmediavault_zfs.git && \
-chmod +777 ./openmediavault_zfs/openmediavault_zfs.sh && \
+chmod +770 ./openmediavault_zfs/openmediavault_zfs.sh && \
 cp ./openmediavault_zfs/openmediavault_zfs.sh /sbin/ && \
 echo "0 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab && \
 echo "0 5 * * * root openmediavault_zfs.sh destroy 7" >> /etc/crontab
