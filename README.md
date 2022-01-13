@@ -20,7 +20,7 @@ git clone https://github.com/huangwb8/openmediavault_zfs.git && \
 chmod +770 ./openmediavault_zfs/openmediavault_zfs.sh && \
 cp ./openmediavault_zfs/openmediavault_zfs.sh /sbin/ && \
 echo "0 3 * * * root openmediavault_zfs.sh snapshot" >> /etc/crontab && \
-echo "0 5 * * * root openmediavault_zfs.sh destroy 7" >> /etc/crontab
+echo "0 5 * * * root openmediavault_zfs.sh destroy 15" >> /etc/crontab
 ```
 What the code doing is: 代码的含义是：
 + Git clone. 从github复制openmediavault_zfs仓库
@@ -49,13 +49,13 @@ If you can see something like: 如果可以看到如下类似内容：
 ```shell
 -rwxrwxrwx
 0 3 * * * root openmediavault_zfs.sh snapshot 
-0 5 * * * root openmediavault_zfs.sh destroy 7
+0 5 * * * root openmediavault_zfs.sh destroy 15
 ```
 in the shell, that means success!  奥力给！
 
 ## Note
 
-+ It means that the system would create a snapshot in 3:00.am and destroy a 7-day-before one in 5:00 a.m. 这意味着系统在每天早上3点钟创建一个新的快照，并在早上5点钟删除一个7天前的快照。
++ It means that the system would create a snapshot in 3:00.am and destroy a 15-day-before one in 5:00 a.m. 这意味着系统在每天早上3点钟创建一个新的快照，并在早上5点钟删除一个15天前的快照。
 
 + If you want to customize the time, first you have to command some knowledge about `cro`, which you can learn [here](https://www.runoob.com/linux/linux-comm-crontab.html). 如果你想自定义时间，你需要了解一下linux的cron相关知识。详见[这里](https://www.runoob.com/linux/linux-comm-crontab.html)。
 
