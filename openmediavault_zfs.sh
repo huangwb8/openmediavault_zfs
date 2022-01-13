@@ -3,6 +3,13 @@
 # Reference
 # cron: https://www.runoob.com/linux/linux-comm-crontab.html
 
+# log
+## 2022-01-13: 
+## 1. generalize pool names to any string instead of `nas` only.
+
+# Introduction
+## Create or destory snapshots of ZFS pools in Openmediavault
+
 # Usage
 USAGE_NOTRUN()
 {
@@ -27,19 +34,48 @@ type=$1 # 执行类型: snapshot ; destroy; test
 every=$2 # 每多少天进行快照删除。
 
 # Programe
-if [ ${type} == "snapshot" ]; then 
-	/sbin/zfs snapshot -r nas@AutoD-`date +"%F"`
-elif [ ${type} == "destroy" ]; then
-	dataset=`/sbin/zfs list -t snapshot -o name | /bin/grep nas@AutoD- | /usr/bin/sort -r | /usr/bin/tail -n +${every}`
-	if [ -z ${dataset} ]; then
-		echo "no datasets available"
+
+## check the name of pools
+pool=`/sbin/zpool list | cut -d' ' -f1`
+num=${#pool[@]}
+
+## Running programe
+if [ $num >= 2 ]; then
+	for ((i=2;i<=$num;i++));
+	do
+	
+	# Get one pool
+	p=`echo ${pool}|cut -d' ' -f${i}`
+	
+	# Snapshot
+	if [ ${type} == "snapshot" ]; then 
+	/sbin/zfs snapshot -r ${p}@AutoD-`date +"%F"`
+	elif [ ${type} == "destroy" ]; then
+		dataset=`/sbin/zfs list -t snapshot -o name | /bin/grep ${p}@AutoD- | /usr/bin/sort -r | /usr/bin/tail -n +${every}`
+		if [ -z ${dataset} ]; then
+			echo "no datasets available"
+		else 
+			echo "destroy ${dataset}"
+			/sbin/zfs destroy -r ${dataset}
+		fi
+	elif [ ${type} == "test" ]; then
+		ls /sbin/openmediavault_zfs.sh -hl | cut -d' ' -f1 && cat /etc/crontab | grep openmediavault_zfs.sh
 	else 
-		echo "destroy ${dataset}"
-		/sbin/zfs destroy -r ${dataset}
+		echo "Please input right type: One of 'snapshot', 'destory' or 'test'."
 	fi
-elif [ ${type} == "test" ]; then
-	ls /sbin/openmediavault_zfs.sh -hl | cut -d' ' -f1 && cat /etc/crontab | grep openmediavault_zfs.sh
-else 
-	echo "Please input right type: One of 'snapshot', 'destory' or 'test'."
-fi	
-# End
+	
+	# End
+	done
+fi
+
+
+
+
+
+
+
+
+
+
+
+

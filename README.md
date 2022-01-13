@@ -3,8 +3,6 @@
 
 一种简单地方式在openmediavault系统中应用zfs进行自动化快照和快照删除
 
-
-
 # Usage
 
 ## Root
@@ -70,7 +68,9 @@ in the shell, that means success!  奥力给！
   0 5 * * * root openmediavault_zfs.sh destroy 30 # destroy 30-day-ago snapshot everyday in 5:00 a.m.
   ```
 
-  
+## Log
++ 2022-01-13: 
+  + Repair: generalize pool names to any string instead of `nas` only.
 
 
 
