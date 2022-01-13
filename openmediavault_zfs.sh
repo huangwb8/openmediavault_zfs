@@ -26,29 +26,7 @@ USAGE_NOTRUN()
 	
 	# 3.Check crontab
 	vim /etc/crontab
-	
-	if [ 1 -ge 2 ]; then
-	echo 3
-	fi
-	
-	echo $pool|while read id; do echo test$id; done
-	echo $pool|cut -d' ' -f2
-	
-str='this is a good question, hello shell, look at me, show your enthusiasm'
-i=1
-while((1==1))
-do
-  splitchar=`echo $pool|cut -d " " -f$i`
-  if [ "$splitchar" != "" ]
-  then
-	  ((i++))
-	  echo $splitchar
-  else
-	  break
-  fi
-done
-	
-	
+
 }
 
 
