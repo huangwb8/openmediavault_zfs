@@ -1,7 +1,7 @@
 # openmediavault_zfs
- A easy way for rookies to use snapshot and destroy function of ZFS in openmediavault
+ Automate snapshot and destroy for ZFS pools in openmediavault (OMV) NAS system
 
-一种简单地方式在openmediavault系统中应用zfs进行自动化快照和快照删除
+在openmediavault中对ZFS文件系统进行自动化备份和删除快照的操作
 
 # Usage
 
