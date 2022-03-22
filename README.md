@@ -70,7 +70,15 @@ in the shell, that means success!  搞定！
   0 5 * * * root openmediavault_zfs.sh destroy 30 # destroy 30-day-ago snapshot everyday in 5:00 a.m.
   ```
 
++ 如果创建了snapshot，在删除文件后，zfs文件系统的空间很可能不会增加。你还要要删除该文件出现之后的所有snapshot才可以释放空间。简单粗暴的方法是，如果你确定可以删除所有snapshot，则：
+
+  ```bash
+  su
+  zfs list -H -o name -t snapshot | xargs -n1 zfs destroy -R
+  ```
+
 ## Log
+
 + 2022-01-13: 
   + Repair: generalize pool names to any string instead of `nas` only.
 
