@@ -82,5 +82,8 @@ in the shell, that means success!  搞定！
 + 2022-01-13: 
   + Repair: generalize pool names to any string instead of `nas` only.
 
+# More
 
+Welcome to my blog: [https://blognas.hwb0307.com](https://blognas.hwb0307.com)
 
+欢迎来我的博客 [https://blognas.hwb0307.com](https://blognas.hwb0307.com)，有更多Linux/docker的实用教程等着你喔！
