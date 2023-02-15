@@ -19,8 +19,8 @@ Copy the code and run in the shell. 复制下面的代码并且粘贴到shell，
 git clone https://github.com/huangwb8/openmediavault_zfs.git && \
 chmod +770 $(pwd)/openmediavault_zfs/openmediavault_zfs.sh && \
 ln -s $(pwd)/openmediavault_zfs/openmediavault_zfs.sh /sbin/openmediavault_zfs.sh && \
-echo "0 3 * * * root openmediavault_zfs.sh snapshot >/dev/null 2>&1" >> /etc/crontab && \
-echo "0 5 * * * root openmediavault_zfs.sh destroy 15 >/dev/null 2>&1" >> /etc/crontab
+echo -e "\n# Create a snapshot in 3:00 am\n0 3 * * * root openmediavault_zfs.sh snapshot >/dev/null 2>&1" >> /etc/crontab && \
+echo -e "\n# Destroy a snapshot in 5:00 am\n0 5 * * * root openmediavault_zfs.sh destroy 15 >/dev/null 2>&1" >> /etc/crontab
 ```
 What the code doing is: 代码的含义是：
 + Git clone. 从github复制openmediavault_zfs仓库
@@ -79,6 +79,7 @@ in the shell, that means success!  搞定！
 
 ## Log
 
++ **2023-02-15**：Use `echo -e` to add more humanized cron events.
 + **2022-12-13**: Add `>/dev/null 2>&1` at the end of each command of `cron` (strongly recommended!), which doesn't trigger the mail notification of openmediavault.
 + **2022-01-13**: Repair generalize pool names to any string instead of `nas` only.
 
